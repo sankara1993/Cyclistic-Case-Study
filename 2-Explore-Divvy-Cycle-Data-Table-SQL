@@ -1,0 +1,40 @@
+-- Check if consolidated data table exists
+select *
+from `first-sandbox-project-1-389720.divvy_tripdata.DIVVY_CYCLE_DATA`
+limit 1000
+
+-- Find rideable types
+SELECT DISTINCT rideable_type
+FROM `first-sandbox-project-1-389720.divvy_tripdata.DIVVY_CYCLE_DATA`
+
+-- Find casual vs member rides
+SELECT member_casual, COUNT(*)
+FROM `first-sandbox-project-1-389720.divvy_tripdata.DIVVY_CYCLE_DATA`
+GROUP BY 1
+
+-- Find start station trips
+SELECT distinct start_station_name, COUNT(start_station_name) AS started_rides
+FROM `first-sandbox-project-1-389720.divvy_tripdata.DIVVY_CYCLE_DATA`
+GROUP BY 1
+ORDER BY started_rides DESC
+
+--Find end station trips
+SELECT distinct end_station_name, COUNT(end_station_name) AS ended_rides
+FROM `first-sandbox-project-1-389720.divvy_tripdata.DIVVY_CYCLE_DATA`
+GROUP BY 1
+ORDER BY ended_rides DESC
+
+--Count round trips
+SELECT start_station_id, end_station_id, rideable_type, member_casual, COUNT(*)
+FROM `first-sandbox-project-1-389720.divvy_tripdata.DIVVY_CYCLE_DATA`
+WHERE start_station_id = end_station_id
+GROUP BY 1,2,3,4
+
+SELECT COUNT(*) AS Count_Round_trip_total
+FROM `first-sandbox-project-1-389720.divvy_tripdata.DIVVY_CYCLE_DATA`
+WHERE start_station_id = end_station_id
+
+--Count total trips
+SELECT COUNT(*) AS Count_Total_Rides
+FROM `first-sandbox-project-1-389720.divvy_tripdata.DIVVY_CYCLE_DATA`
+
