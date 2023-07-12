@@ -1,0 +1,21 @@
+--Start cleaning data
+
+--Delete data that is NULL
+DELETE
+FROM `first-sandbox-project-1-389720.divvy_tripdata.DIVVY_CYCLE_DATA`
+WHERE ride_id IS NULL 
+  OR rideable_type IS NULL
+  OR start_station_id IS NULL
+  OR start_station_name IS NULL
+  OR end_station_id IS NULL
+  OR end_station_name IS NULL
+  OR member_casual IS NULL
+  OR start_lat IS NULL 
+  OR start_lng IS NULL
+  OR end_lat IS NULL
+  OR end_lng IS NULL
+
+--Delete data where start time > end time
+DELETE
+FROM `first-sandbox-project-1-389720.divvy_tripdata.DIVVY_CYCLE_DATA`
+WHERE started_at > ended_at
