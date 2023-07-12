@@ -1,0 +1,27 @@
+--Check if any other member types exist
+SELECT distinct member_casual, COUNT(*)
+FROM `first-sandbox-project-1-389720.divvy_tripdata.DIVVY_CYCLE_DATA`
+GROUP BY 1
+
+--Check ride ids are unique
+SELECT distinct ride_id, COUNT(*)
+FROM `first-sandbox-project-1-389720.divvy_tripdata.DIVVY_CYCLE_DATA`
+GROUP BY 1
+HAVING COUNT(ride_id)> 1
+
+--Check for NULLS
+SELECT *
+FROM `first-sandbox-project-1-389720.divvy_tripdata.DIVVY_CYCLE_DATA`
+WHERE TRIM(start_station_id) IS NULL OR TRIM(start_station_name) IS NULL
+
+SELECT *
+FROM `first-sandbox-project-1-389720.divvy_tripdata.DIVVY_CYCLE_DATA`
+WHERE TRIM(end_station_id) IS NULL OR TRIM(end_station_name) IS NULL
+
+SELECT *
+FROM `first-sandbox-project-1-389720.divvy_tripdata.DIVVY_CYCLE_DATA`
+WHERE rideable_type IS NULL
+
+SELECT *
+FROM `first-sandbox-project-1-389720.divvy_tripdata.DIVVY_CYCLE_DATA`
+WHERE member_casual IS NULL
