@@ -1,6 +1,7 @@
 --Start cleaning data
 
 --Delete data that is NULL
+--NOTE: BigQuery does NOT allow DELETE statement to be used with free account
 DELETE
 FROM `first-sandbox-project-1-389720.divvy_tripdata.DIVVY_CYCLE_DATA`
 WHERE ride_id IS NULL 
