@@ -1,0 +1,24 @@
+-- Union Divvy Trip Data tables together
+ CREATE TABLE `first-sandbox-project-1-389720.divvy_tripdata.DIVVY_CYCLE_DATA` AS
+(
+  SELECT *
+    FROM `first-sandbox-project-1-389720.divvy_tripdata.202210-divvy-tripdata`
+  UNION ALL
+  SELECT *
+    FROM `first-sandbox-project-1-389720.divvy_tripdata.202211-divvy-tripdata`
+  UNION ALL
+  SELECT *
+    FROM `first-sandbox-project-1-389720.divvy_tripdata.202212-divvy-tripdata`
+  UNION ALL
+  SELECT *
+    FROM `first-sandbox-project-1-389720.divvy_tripdata.202301-divvy-tripdata`
+  UNION ALL
+  SELECT *
+    FROM `first-sandbox-project-1-389720.divvy_tripdata.202302-divvy-tripdata`
+  UNION ALL
+  SELECT *
+    FROM `first-sandbox-project-1-389720.divvy_tripdata.202303-divvy-tripdata`
+  UNION ALL
+  SELECT *
+    FROM `first-sandbox-project-1-389720.divvy_tripdata.202304-divvy-tripdata`
+)
