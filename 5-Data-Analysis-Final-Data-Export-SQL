@@ -1,0 +1,4 @@
+-- Filter and export only non-NULL data since BigQuery limits DELETE statement usage with account 
+
+SELECT *
+FROM `first-sandbox-project-1-389720.divvy_tripdata.DIVVY_CYCLE_DATA`
